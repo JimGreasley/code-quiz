@@ -2,8 +2,14 @@
 var startBtn = document.querySelector("#start-quiz");
 var timeLeft = document.querySelector("#time-left");
 
+var choiceList = document.getElementById("choice-list");
+
 // define variables containing each question, the correct answer (number), and four choices available
-var question_1 = ["Which is not an HTML element?", 3, "<head>", "<body>", "<widget>", "<p>"]
+var question_1 = ["Which is not an HTML element?", 3, "1. <head> ", "2. <body> ", "3. <widget>", "4. <p>   "];
+var question_2 = ["Which is not a component of a webpage?", 3, "1. HTML  ", "2. JavaScript", "3. CSS    ", "4. COBOL "];
+
+var correct_selection = 0;
+var secondsLeft = 25;
 
 // Add event listener to generate button
 startBtn.addEventListener("click", startQuiz);
@@ -12,25 +18,103 @@ startBtn.addEventListener("click", startQuiz);
 
 
 function startQuiz () {
-  var secondsLeft = 15;
-  setTimer(secondsLeft);
+
+  setTimer();
 
   console.log("starting questions");
-  /*
+
+// Set the body to a variable
+//    var body = document.body;
+  
+  var sqBtn = document.getElementById("start-quiz");
+  var h4El = document.getElementById("qtn-area"); 
+//  var choiceList = document.getElementById("choice-list");
+
   var question_no = 0;
+
+  sqBtn.style.display = "none";
+
   do {
-    var 
-  } while (question_no < 1);
-*/
+
+    // Clear choiceist element
+    choiceList.innerHTML = "";
+
+    // capture the question
+    h4El.textContent = question_1[0];
+
+    //save the number of the correct selection
+    correct_selection = question_1[1];
+    console.log("correct selection is: ", correct_selection);
+   
+    // capture the mutiple choice answers 
+    loadAnswers(question_1, choiceList);
+
+    question_no++;
+
+  } while (question_no < 2);
+
+  var player_score = secondsLeft;
+  console.log("Player score is: ", player_score);
+  
+ // clearInterval(timerInterval);
+
+}
+
+// When a element inside of the todoList is clicked...
+choiceList.addEventListener("click", function(event) {
+  var element = event.target;
+
+  // If that element is a button...
+  if (element.matches("button") === true) {
+    // Get its selection-no value
+    var selection = element.getAttribute("selection-no");
+
+    console.log("selection no: ", selection);
+
+    if (selection === correct_selection) {
+       console.log("correct");
+    } else {
+        console.log("wrong, 10 sec deducted from ", secondsLeft);
+        secondsLeft -= 10;
+        console.log(secondsLeft);
+    }
+  }
+});
+
+
+
+
+function loadAnswers(qtnArray, answerList) {
+
+//  var h4El = document.getElementById("qtn-area"); 
+// load question
+// h4El.textContent = qtnArray[0];
+
+  // Display next possible choice for 
+  for (var i = 2; i < 6; i++) {
+    var choice = qtnArray[i];
+
+//    var li = document.createElement("li");
+//    li.textContent = choice;
+//    li.setAttribute("selection-no", i);
+
+    var button = document.createElement("button");
+    button.textContent = choice;   //"Complete";
+ //   li.appendChild(button);
+    button.setAttribute("selection-no", i - 1);
+
+//    answerList.appendChild(li);
+    answerList.appendChild(button);
+  }
 }
 
 
-function setTimer(secLeft) {
+function setTimer() {
   var timerInterval = setInterval(function() {
-    secLeft--;
-    timeLeft.textContent = secLeft;
+    secondsLeft--;
+    timeLeft.textContent = secondsLeft;
 
-    if(secLeft === 0) {
+    if(secondsLeft === 0) {
       clearInterval(timerInterval);
       sendMessage();
     }
@@ -48,64 +132,3 @@ function sendMessage() {
 */
 
 }
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// ------------------------------------------------
-// function to create password based on user input
-// ------------------------------------------------
-function generatePassword() {
-  // -----------------------------------------------------
-  // clear previous password; code below doesn't work
-  // -----------------------------------------------------
-
-  // document.getElementById('passwrod').innerHTML = " ";
-
-  // -------------------------------------------------------------------------------------
-  // get desired length of password from user - must be greater than 7 and less than 129
-  // -------------------------------------------------------------------------------------
-  do {
-    var  pswd_length = prompt("Please enter length (between 8 and 128) of password to be created."); 
-    if (pswd_length < 8 || pswd_length > 128) {
-       alert("Invalid password length, must be greater than 7 and less than 129 characters, please re-enter");
-       keep_looping = true;
-    } 
-    else {
-      keep_looping = false;
-    }
-  }
-  while (keep_looping);
-
-  
-
-  console.log(use_lowercase, use_uppercase, use_numeric, use_special);
-  // ---------------------------------------------------
-  // create a new password based on the user's criteria
-  // ---------------------------------------------------
-  // initialize new pswd to empty string
-    var new_password = "";
-  //  define next char to be appended to pswd
-    var next_char;
-  // create new password by appending characters until we have reached the user's desired length
-    for (let i = 0; i < pswd_length; i++) {
-      // call function to get next eligible character based on user's criteria
-      next_char = nextChar(use_lowercase, use_uppercase, use_numeric, use_special);
-      new_password = new_password + next_char;
-    }
-    console.log(new_password);
-    return new_password;
-}
-
-
-
-
-

@@ -20,15 +20,20 @@
 
   <div class="container">
     <h1 class="welcome">Welcome to Code Quiz</h1>
-    <br>
     <h4 id="qtn-area">Try to answer the code-related questions within the time limit. Incorrect answers will penalize your score time by 10 seconds!</h4>
-    <p id="choices"></p>
+    <div class="choices">
+ <!--   <ul id="choice-list"></ul>  -->
+      <p id="choice-list"></p>
+    </div>
     <button id="start-quiz" class="btn">Start Quiz</button>
+    <div id="fdbk">
+      <p id="feedback"></p>
+    </div>
   </div>
   
 
 
-<!--
+<!-- do we need these?
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"></script>
