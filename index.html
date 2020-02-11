@@ -13,10 +13,21 @@
 
 <body>
 
+    <!-- This is the main page for the Code Quiz application.                          -->
+    <!-- Once the quiz is started, a series of multiple choice questions are asked     -->
+    <!-- as a timer counts down from 75.                                               -->
+    <!-- If a player selects a wrong answer they are penalized 10 seconds.             -->
+    <!-- The player's final score is the time remaining when they answer the last      -->
+    <!-- question.  Their final score will be displayed on the 'All Done' page, where  -->
+    <!-- they will enter their initials and have their high score saved in local       -->
+    <!-- storage.  The high scores of various player's are displayed on the            -->
+    <!-- 'High scores' page.                                                           -->
+    <!--                                                            RJG  Feb 08, 2020  -->
+
   <a href="highscores.html">View Highscores</a>
 
   <p>Timer: <span id="time-left">15</span></p>
-
+ 
 
   <div class="container">
     <h1 class="welcome">Welcome to Code Quiz</h1>
@@ -26,14 +37,12 @@
       <p id="choice-list"></p>
     </div>
     <button id="start-quiz" class="btn">Start Quiz</button>
-    <div id="fdbk">
-      <p id="feedback"></p>
+    <div>
+      <h4 id="feedback"></h4>
     </div>
   </div>
   
 
-
-<!-- do we need these?
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"></script>
@@ -43,8 +52,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
--->
-      <script src="script.js"></script>
+
+     <script src="script.js"></script>
    
 </body>
 

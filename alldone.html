@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HS All Done</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+
+    <!-- This page displays the current Code Quiz player's score.                        -->
+    <!-- The player may enter their initials and together with their current score will  -->
+    <!-- will be saved in local storage (using JSON) as an object of player high scores  -->
+    <!--                                                            RJG  Feb 10, 2020    -->
+
+    <section class="container">
+        
+        <div class="col text-center mt-5">
+            <h3>All Done!</h3>
+        </div>
+        <br>
+        <div class="col offset-3">
+            <h4>Your final score is: <span id="plr-score"></span></h4>  
+        </div>
+        <br>
+        <div class="row">
+            <div class="col offset-3">
+               <h4>Enter initials:</h4>  
+           </div>
+           <div class="col">
+               <!-- <label for="todo-text">Enter initials:</label> -->
+                <!-- <input type="text" name="player-initials" id="player-initials"/> -->
+                <form id="initials">
+                    <input type="text" name="player-initials" id="player-initials" />
+                </form>
+                <!-- <p id="player"><input type="text" id="player-initials" /></p> -->
+           </div>
+           <div class="col">
+             <button id="submit">Submit</button>
+           </div>
+
+       </div>
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var playerInitials = document.querySelector("#player-initials");
+        var initials       = document.querySelector("#initials");
+        var submitBtn      = document.querySelector("#submit");
+               
+        //  get player score from local storage
+    
+        var player_score = localStorage.getItem("playerScore");
+        console.log(player_score);  //, "playerScore");
+
+        var plrScore = document.getElementById("plr-score");
+        plrScore.textContent = player_score;
+
+        // Add event listener to submit button
+        submitBtn.addEventListener("click", saveHighscore);
+
+
+        function saveHighscore () {
+            // var str = playerInitials.textContent;
+            var str = initials.textContent;
+            var player_initials = str.toUpperCase();
+            console.log("player initials: ", player_initials);
+
+    //        var high_scores = localStorage.getItem("HighScores");
+    //        if (!high_scores)
+    //           localStorage.setItem("HighScores", JSON.stringify()
+            console.log("Player " + player_initials + " has high score: ", player_score);
+            
+            // transfer to 'Highscores' page
+            window.location.href = "highscores.html";
+        }
+
+    // When form is submitted...
+    /*
+        todoForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var todoText = todoInput.value.trim();
+
+        // Return from function early if submitted todoText is blank
+        if (todoText === "") {
+            return;
+        }
+
+        // Add new todoText to todos array, clear the input
+        todos.push(todoText);
+        todoInput.value = "";
+
+        // Re-render the list
+        renderTodos();
+        });
+    */
+    </script>
+
+</body>
+
+</html>

@@ -8,42 +8,15 @@
     <title>Highscores</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- This page is comprised of two containers utilizing the Bootstrap Grid.        -->
-    <!-- The first is defined as a piece of the Navbar.                                -->
-    <!-- The second is a section which lays out the rows and columns containing        -->
-    <!-- the various projects in my portfolio.                                         -->
-    <!-- A footer element contains the copyright notification.                         -->
-    <!--                                                            RJG  Feb 02, 2020  -->
+    <!-- This page displays a list of Code Quiz player high scores from local storage  -->
+    <!-- There is an option to clear out the list of high scores.                      -->
+    <!--                                                            RJG  Feb 08, 2020  -->
 
-    <!--
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                Robert Greasley
-            </a>
-                        
-            <ul class="navbar-nav ml-auto flex-row">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">About <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="portfolio.html">Porfolio</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-    <br>
--->
 
     <section class="container">
 
@@ -60,21 +33,12 @@
         </div>
 
         <div class="container">
-         <!---->   <a class="HS-btn" href="index.html">Go Back</a>  -->
-            <button id="go-back" href="index.html">Go Back</button> 
-            <button id="clear_HS">Clear Highscores</button>
-          </div>
+         <!--   <a class="HS-btn" href="index.html">Go Back</a>  -->
+            <button id="go-back">Go Back</button> 
+            <button id="clear-HS">Clear Highscores</button>
+        </div>
 
     </section>
-
-<!--
-    <footer class="footer mt-auto py-3">
-        <div class="container text-center">
-            <span class="text-muted"><small>Copyright &copy; </small>
-            </span>
-        </div>
-    </footer>
--->
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -86,9 +50,36 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<!--
-    <script src="script.js"></script>
--->
+
+    <script>
+        var goBackBtn           = document.querySelector("#go-back");
+        var clearHighScoresBtn  = document.querySelector("#clear-HS");
+                   
+        //  get High Scores from local storage
+    
+        //var player_score = localStorage.getItem("playerScore");
+        //console.log(player_score);  //, "playerScore");
+
+        //var plrScore = document.getElementById("plr-score");
+        //plrScore.textContent = player_score;
+
+        // Add event listener to Go Back button
+        goBackBtn.addEventListener("click", goBack);
+
+        // Add event listener to submit button
+        clearHighScoresBtn.addEventListener("click", clearHiScores);
+
+        function goBack () {
+          // transfer to "All Done" page and allow them to input their initials
+             window.location.href = "index.html";
+        }
+
+        function clearHiScores () {
+          // initialize High Scores object in local storage
+          //   window.location.href = "index.html";
+        }
+
+    </script>
 
 </body>
 
