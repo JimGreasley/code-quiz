@@ -92,7 +92,13 @@
             //  get High Scores from local storage
         
             var data        = localStorage.getItem("highScores");
-            var high_scores = JSON.parse(data);
+
+            if (!data) {
+                // create new high_scores array
+                var high_scores = [];
+            } else {
+                var high_scores = JSON.parse(data);
+            }
             console.log(high_scores);
 
             // create a new player-score object

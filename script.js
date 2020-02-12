@@ -24,7 +24,7 @@ var timerInterval;
 
 // testing: save High Score array in local storage
 //var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
-// localStorage.removeItem("highScores");
+//localStorage.removeItem("highScores");
 
 // initalize an empty high_scores array and save it to locate storage
 //var high_scores = [];
