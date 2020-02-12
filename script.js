@@ -1,7 +1,7 @@
 // define Global variables
 
-var startBtn = document.querySelector("#start-quiz");
-var timeLeft = document.querySelector("#time-left");
+var startBtn  = document.querySelector("#start-quiz");
+var timeLeft  = document.querySelector("#time-left");
 
 var sqBtn      = document.getElementById("start-quiz");
 var h4El       = document.getElementById("qtn-area"); 
@@ -16,30 +16,26 @@ var question_3 = ["Arrays in JavaScript can be used to store___.", 4, "numbers a
 var question_4 = ["String values must be enclosed within__ when being assigned to variables.", 3, "commas", "curly brackets", "quotes", "parentheses"];
 var question_5 = ["A very useful tool used during development and debugging for printing content to the debugger is:", 4, "javascript", "terminal/bash", "for loops", "console.log"];
 
-
-
-var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
-
 var correct_selection = 0;
 var player_score = 0;
 var secondsLeft = 75;
 var question_no = 0;
 var timerInterval;
 
-// Add event listener to generate button
-startBtn.addEventListener("click", startQuiz);
+//var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
+// testing: save High Score array in local storage
+localStorage.removeItem("highScores");
+//  localStorage.setItem("highScores", JSON.stringify(high_scores));
 
 // testing: dump array of player high score objects
+// for (let i = 0; i < high_scores.length; i++) {
+//   var hi_score = high_scores[i];
+//   console.log("Player " + hi_score.player + " high score: ", hi_score.score);
+// }
 
-for (let i = 0; i < high_scores.length; i++) {
-  var hi_score = high_scores[i];
-  console.log("Player " + hi_score.player + " high score: ", hi_score.score);
-}
 
-
-// testing: save High Score array in local storage
-  localStorage.removeItem("highScores");
-  localStorage.setItem("highScores", JSON.stringify(high_scores));
+// Add event listener to generate button
+startBtn.addEventListener("click", startQuiz);
 
 
 

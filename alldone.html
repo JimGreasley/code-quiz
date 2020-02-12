@@ -35,10 +35,14 @@
            <div class="col">
                <!-- <label for="todo-text">Enter initials:</label> -->
                 <!-- <input type="text" name="player-initials" id="player-initials"/> -->
-                <form id="initials">
+                <!-- <form id="initials">
                     <input type="text" name="player-initials" id="player-initials" />
-                </form>
+                </form> -->
                 <!-- <p id="player"><input type="text" id="player-initials" /></p> -->
+              <form id="intl-form" method="POST">
+                  <label for="intl-text"></label>
+                  <input type="text" name="intl-text" id="intl-text" />
+               </form>
            </div>
            <div class="col">
              <button id="submit">Submit</button>
@@ -59,10 +63,15 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var playerInitials = document.querySelector("#player-initials");
-        var initials       = document.querySelector("#initials");
+        //  define global variables
+
+        //var playerInitials = document.querySelector("#player-initials");
+        //var initials       = document.querySelector("#initials");
         var submitBtn      = document.querySelector("#submit");
-               
+
+        var intlInput      = document.querySelector("#intl-text");
+        var intlForm       = document.querySelector("#intl-form");
+                
         //  get player score from local storage
     
         var player_score = localStorage.getItem("playerScore");
@@ -74,42 +83,42 @@
         // Add event listener to submit button
         submitBtn.addEventListener("click", saveHighscore);
 
-
         function saveHighscore () {
-            // var str = playerInitials.textContent;
-            var str = initials.textContent;
-            var player_initials = str.toUpperCase();
+        
+            var intlText        = intlInput.value.trim();
+            var player_initials = intlText.toUpperCase();
             console.log("player initials: ", player_initials);
 
-    //        var high_scores = localStorage.getItem("HighScores");
-    //        if (!high_scores)
-    //           localStorage.setItem("HighScores", JSON.stringify()
-            console.log("Player " + player_initials + " has high score: ", player_score);
+            //  get High Scores from local storage
+        
+            var data        = localStorage.getItem("highScores");
+            var high_scores = JSON.parse(data);
+            console.log(high_scores);
+
+            // create a new player-score object
+            var newPlayerScore = new Player(player_initials, player_score);
+            //var new_player_score  = "{player: " + player_initials + ", score: " + player_score + "}";
+            console.log("New player score obj: ", newPlayerScore);
+
+            // Add new player score to high_scores array
+            high_scores.push(newPlayerScore);
+            console.log(high_scores);
+
+            // Save updated high scores array in local storage
+            localStorage.setItem("highScores", JSON.stringify(high_scores));
             
             // transfer to 'Highscores' page
-           // window.location.href = "highscores.html";
+            window.location.href = "highscores.html";
+
+            // Constructor function for Person objects
+
         }
 
-    // When form is submitted...
-    /*
-        todoForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        var todoText = todoInput.value.trim();
-
-        // Return from function early if submitted todoText is blank
-        if (todoText === "") {
-            return;
+        function Player(initials, score) {
+                this.player = initials;
+                this.score  = score;
         }
 
-        // Add new todoText to todos array, clear the input
-        todos.push(todoText);
-        todoInput.value = "";
-
-        // Re-render the list
-        renderTodos();
-        });
-    */
     </script>
 
 </body>
