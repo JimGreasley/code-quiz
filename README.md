@@ -1,5 +1,9 @@
 # code-quiz
 
+I believe most, if not all, the functionality is working.
+However, the look/style is very rough - it's all over the place.
+I ran out of time to make it look good.
+If I get a chance I will work to correct the deficiences (based on the reviewer's feedback) and improve my grade. 
 
 ## Algorithm
 
@@ -19,7 +23,10 @@ While the Timer is greater than zero and there are more questions to be asked:
 If the Timer is zero or there are no more questions the quiz is over.
 If there are no more questions the Timer is stopped.
 The Timer's count becomes the player's score which is displayed on the "All Done" 'screen'.
-The player will be prompted to enter their initials which will be saved, along with their score, z 
+The player will be prompted to enter their initials which will be saved, along with their score, 
+in a High Scores array in local storage.
+The 'High Scores' page is used to display the scores of various players and to optionally clear
+out the High Scores array.
 
 
 ## Link

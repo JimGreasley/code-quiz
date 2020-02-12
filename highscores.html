@@ -93,9 +93,9 @@
 
         function loadHighScoreTable(hiScore, i) {
 
-        // create a new table row and then two table data elements under it    
+        // create a new table row    
            var newTableRow  = document.createElement("div");
-            newTableRow.setAttribute("class", "row justify-content-center"); 
+           newTableRow.setAttribute("class", "row justify-content-center"); 
            //newTableRow.setAttribute("class", "row text-center"); 
 
            var row_no = i + 1;
@@ -125,8 +125,16 @@
 
 
         function clearHiScores() {
-          // initialize High Scores object in local storage
-          //   window.location.href = "index.html";
+
+          // remove highScores data from local storage
+             localStorage.removeItem("highScores");
+
+          // initalize an empty high_scores array and save it to locate storage
+             var high_scores = [];
+             localStorage.setItem("highScores", JSON.stringify(high_scores));
+
+          // reload this page  
+             window.location.href = "highscores.html";
         }
 
     </script>

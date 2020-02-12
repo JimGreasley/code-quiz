@@ -22,10 +22,13 @@ var secondsLeft = 75;
 var question_no = 0;
 var timerInterval;
 
+
 //var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
 // testing: save High Score array in local storage
-localStorage.removeItem("highScores");
-//  localStorage.setItem("highScores", JSON.stringify(high_scores));
+// localStorage.removeItem("highScores");
+
+//var high_scores = [];
+//localStorage.setItem("highScores", JSON.stringify(high_scores));
 
 // testing: dump array of player high score objects
 // for (let i = 0; i < high_scores.length; i++) {
