@@ -22,13 +22,13 @@ var secondsLeft = 75;
 var question_no = 0;
 var timerInterval;
 
-
-//var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
 // testing: save High Score array in local storage
+//var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
 // localStorage.removeItem("highScores");
 
+// initalize an empty high_scores array and save it to locate storage
 //var high_scores = [];
-//localStorage.setItem("highScores", JSON.stringify(high_scores));
+// localStorage.setItem("highScores", JSON.stringify(high_scores));
 
 // testing: dump array of player high score objects
 // for (let i = 0; i < high_scores.length; i++) {
@@ -83,7 +83,7 @@ choiceList.addEventListener("click", function(event) {
         feedBack.textContent = "Wrong!";
     }
     // pause for 500 milliseconds
-    setTimeout(pause, 2500);
+    //setTimeout(pause, 2500);
 
     // ready for next question
     question_no++;
