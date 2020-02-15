@@ -21,31 +21,20 @@
     <section class="container">
 
         <div class="row">
-            <div class="col text-center mt-5">
+            <div class="col text-center mt-5 mb-3">
                 <h3>Highscores</h3>
             </div>
         </div>
 
-        <div id="hs-table" class="container">
-
+        <div id="hs-list" class="container">
         </div>
-
- <!--   <div class="row" id="hs-list">
-             <!-- <div class="col offset-3" id="text-area">  -->
-            <!-- <div class="col offset-3">
-                <p id="player-initials"></p>    
-            </div>
-            <div class="col">
-                <p id="player-score"></p>    
-            </div> 
-        </div>  -->
-
+<!--
         <div class="container">
-         <!--   <a class="HS-btn" href="index.html">Go Back</a>  -->
+            <br>
             <button id="go-back">Go Back</button> 
             <button id="clear-HS">Clear Highscores</button>
         </div>
-
+    -->   
     </section>
 
 
@@ -62,7 +51,7 @@
     <script>
         var goBackBtn           = document.querySelector("#go-back");
         var clearHighScoresBtn  = document.querySelector("#clear-HS");
-        var highScoreTable      = document.querySelector("#hs-table");
+        var highScoreList       = document.querySelector("#hs-list");
 
                    
         //  get High Scores from local storage
@@ -77,11 +66,39 @@
         for (let i = 0; i < high_scores.length; i++) {
             hi_score = high_scores[i];
             console.log("Player " + hi_score.player + " high score: ", hi_score.score);
-            loadHighScoreTable(hi_score, i);
+            loadhighScoreList(hi_score, i);
          }
 
-        //var plrScore = document.getElementById("plr-score");
-        //plrScore.textContent = player_score;
+
+        //---------------------------------------------------------------------------------------------
+        // create buttons dynamically so they "float" underneath the high scores list
+        //---------------------------------------------------------------------------------------------
+ 
+        var newRow  = document.createElement("div");
+        newRow.setAttribute("class", "row justify-content-center mt-2"); 
+
+        var newBtn1  = document.createElement("button");
+         
+        newBtn1.setAttribute("id", "go-back");
+        newBtn1.setAttribute("class", "col-2");
+        //newCol1.setAttribute("class", "col-2 border border-dark");
+        newBtn1.textContent  = "Go Back";
+        newRow.appendChild(newBtn1);
+
+        var newBtn2  = document.createElement("button");
+         
+        newBtn2.setAttribute("id", "clear-HS");
+        newBtn2.setAttribute("class", "col-2");
+        //newCol1.setAttribute("class", "col-2 border border-dark");
+        newBtn2.textContent  = "Clear Highscores";
+        newRow.appendChild(newBtn2);
+
+        highScoreList.appendChild(newRow);
+
+        var goBackBtn           = document.querySelector("#go-back");
+        var clearHighScoresBtn  = document.querySelector("#clear-HS");
+        //-----------------------------------------------------------------------------------
+
 
         // Add event listener to Go Back button
         goBackBtn.addEventListener("click", goBack);
@@ -90,39 +107,44 @@
         clearHighScoresBtn.addEventListener("click", clearHiScores);
 
 
+       //-----------------------------------------------------------------------------------
+       //  function to load a High Score to the High Scores list
+       //-----------------------------------------------------------------------------------
 
-        function loadHighScoreTable(hiScore, i) {
+        function loadhighScoreList(hiScore, i) {
 
         // create a new table row    
            var newTableRow  = document.createElement("div");
-           newTableRow.setAttribute("class", "row justify-content-center"); 
+           newTableRow.setAttribute("class", "row justify-content-center mt-2"); 
            //newTableRow.setAttribute("class", "row text-center"); 
 
            var row_no = i + 1;
 
-           var row_text = row_no + ".    " + hiScore.player + "  -  " + hiScore.score;
+           var col_text = row_no + ".  " + hiScore.player + "  -  " + hiScore.score;
 
-           newTableRow.textContent  = row_text;
+           //newTableRow.textContent  = row_text;
 
-        //   var newTblData1  = document.createElement("div");
-        //   newTblData1.setAttribute("class", "col-3"); 
-        //   newTblData1.textContent  = hiScore.player;
+           var newTblCol  = document.createElement("div");
+           newTblCol.setAttribute("class", "col-2 border border-dark"); 
+           newTblCol.textContent  = col_text;
 
-        //   var newTblData2  = document.createElement("div");
-        //   newTblData2.setAttribute("class", "col-3"); 
-        //   newTblData2.textContent  = hiScore.score;
+           highScoreList.appendChild(newTableRow);
+           newTableRow.appendChild(newTblCol);
 
-           highScoreTable.appendChild(newTableRow);
-        //   newTableRow.appendChild(newTblData1);
-        //   newTableRow.appendChild(newTblData2);
         }
 
-        
+       //-----------------------------------------------------------------------------------
+       //  function to go back to the start page
+       //-----------------------------------------------------------------------------------        
+
         function goBack() {
-          // transfer to "All Done" page and allow them to input their initials
+          // transfer to main (start) main 
              window.location.href = "index.html";
         }
 
+       //-----------------------------------------------------------------------------------
+       //  function to clear out the High Scores list
+       //-----------------------------------------------------------------------------------
 
         function clearHiScores() {
 

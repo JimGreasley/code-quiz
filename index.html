@@ -8,7 +8,7 @@
   <title>Code Quiz</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="CSS/style.css" />
 </head>
 
 <body>
@@ -24,14 +24,24 @@
     <!-- 'High scores' page.                                                           -->
     <!--                                                            RJG  Feb 08, 2020  -->
 
+  <div class="container">
+    <div class="row justify-content-between mt-2">
+      <div class="col-3">
+        <a href="highscores.html">View Highscores</a>
+      </div>
+      <div class="col-3">
+        <p>Timer: <span id="time-left">0</span></p>
+       </div>
+    </div>
+  </div>
+<!-- 
   <a href="highscores.html">View Highscores</a>
-
   <p>Timer: <span id="time-left">15</span></p>
- 
+-->
 
   <div class="container">
     <h1 class="welcome">Welcome to Code Quiz</h1>
-    <h4 id="qtn-area">Try to answer the code-related questions within the time limit. Incorrect answers will penalize your score time by 10 seconds!</h4>
+    <h4 id="qtn-area">Try to answer the code-related questions within the time limit.<br>Incorrect answers will penalize your score time by 10 seconds!</h4>
     <div class="choices">
  <!--   <ul id="choice-list"></ul>  -->
       <p id="choice-list"></p>
@@ -53,7 +63,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
 
-     <script src="script.js"></script>
+     <script src="JSCRIPT/script.js"></script>
    
 </body>
 

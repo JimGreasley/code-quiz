@@ -1,9 +1,5 @@
 # code-quiz
 
-I believe most, if not all, the functionality is working.
-However, the look/style is very rough - it's all over the place.
-I ran out of time to make it look good.
-If I get a chance I will work to correct the deficiences (based on the reviewer's feedback) and improve my grade. 
 
 ## Algorithm
 
