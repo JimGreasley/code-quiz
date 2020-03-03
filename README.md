@@ -19,8 +19,8 @@ While the Timer is greater than zero and there are more questions to be asked:
 If the Timer is zero or there are no more questions the quiz is over.
 If there are no more questions the Timer is stopped.
 The Timer's count becomes the player's score which is displayed on the "All Done" 'screen'.
-The player will be prompted to enter their initials which will be saved, along with their score, 
-in a High Scores array in local storage.
+The player will be prompted to enter their initials. If the player already exists in the High Scores array their new score will replace their old high score if the new one is higher. Otherwise the player will be added to the High Scores array.
+The High Scores array is saved in local storage and control is transferred to the High Scores page. 
 The 'High Scores' page is used to display the scores of various players and to optionally clear
 out the High Scores array.
 
