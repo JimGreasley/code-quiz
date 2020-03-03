@@ -82,8 +82,6 @@ choiceList.addEventListener("click", function(event) {
         console.log(secondsLeft);
         feedBack.textContent = "Wrong!";
     }
-    // pause for 500 milliseconds
-    //setTimeout(pause, 2500);
 
     // ready for next question
     question_no++;
@@ -158,8 +156,13 @@ function setTimer() {
     timeLeft.textContent = secondsLeft;
     if(secondsLeft <= 0) {
       clearInterval(timerInterval);
-//      sendMessage();
-      console.log("time's up");
+      //console.log("time's up");
+      player_score = 0;
+      // save current players score in local storage ["playerScore"]
+      //  localStorage.setItem("playerScore", JSON.stringify(player_score));
+      localStorage.setItem("playerScore", player_score);
+      // transfer to "All Done" page and allow them to input their initials
+      window.location.href = "alldone.html";
     }
   }, 1000);  
 }
