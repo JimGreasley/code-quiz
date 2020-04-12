@@ -22,21 +22,6 @@ var secondsLeft = 75;
 var question_no = 0;
 var timerInterval;
 
-// testing: save High Score array in local storage
-//var high_scores = [ {player: "ABC", score: 42}, {player: "XYZ", score: 53} ];
-//localStorage.removeItem("highScores");
-
-// initalize an empty high_scores array and save it to locate storage
-//var high_scores = [];
-// localStorage.setItem("highScores", JSON.stringify(high_scores));
-
-// testing: dump array of player high score objects
-// for (let i = 0; i < high_scores.length; i++) {
-//   var hi_score = high_scores[i];
-//   console.log("Player " + hi_score.player + " high score: ", hi_score.score);
-// }
-
-
 // Add event listener to generate button
 startBtn.addEventListener("click", startQuiz);
 
@@ -62,7 +47,7 @@ function startQuiz () {
 }
 
 
-// When a element inside of the todoList is clicked...
+// When an answer within the choice list is clicked...
 choiceList.addEventListener("click", function(event) {
   var element = event.target;
 
@@ -144,7 +129,6 @@ function poseQuestion(qtnArray) {
     choiceList.appendChild(button);
 
   }
-
 }
 
 
@@ -168,18 +152,6 @@ function setTimer() {
 }
 
 
-function pause() {
-  return;
-}
-
-/*
-function sendMessage() {
-  console.log("time's up");
-//
-  timeEl.textContent = " ";
-  var imgEl = document.createElement("img");
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
-//
-}
-*/
+// function pause() {
+//   return;
+// }

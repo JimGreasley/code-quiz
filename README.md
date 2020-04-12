@@ -25,5 +25,8 @@ The 'High Scores' page is used to display the scores of various players and to o
 out the High Scores array.
 
 
-## Link
+## Deployment link
  https://jimgreasley.github.io/code-quiz/
+
+## GitHub code
+ https://github.com/JimGreasley/code-quiz
